@@ -4,8 +4,9 @@ const output = document.querySelector('#output');
 
 let todos = [];
 
+//hämtar todos från databasen och restricts till 10
 const fetchTodos = () => {
-    fetch('https://jsonplaceholder.typicode.com/todos')
+    fetch('http://jsonplaceholder.typicode.com/todos?_start=0&_limit=10')
     .then(res => res.json())
     .then(data => {
         todos = data;
@@ -39,28 +40,19 @@ const newTodo = (todo) => {
 
 }
 
+
+
 const listTodos = () => {
     output.innerHTML = '';
     todos.forEach(todo => {
-        // let _todo = `
-        // <div class="card p-3 my-3 todo">
-        //     <div class="d-flex justify-content-between">
-        //         <h3 class="title">Todo title</h3>
-        //         <button class="btn btn-danger">x</button>
-        //     </div>
-        // </div>
-        // `
-        // output.insertAdjacentHTML('beforeend', _todo); 
+
         newTodo(todo);
     })
 }
 
+//laddar upp nya todos i databasen och stringifierar och lägger nya todos överst
 
 const createTodo = (title) => {
-
-    // let _todo = {
-
-    // }
 
     fetch('https://jsonplaceholder.typicode.com/todos',{
         method: 'POST',
@@ -79,10 +71,44 @@ const createTodo = (title) => {
         listTodos();
     })
 }
+//validering
+const validateTodo = () => {
+    if(input.value === '') {
+        input.classList.add('is-invalid');
+        error.innerText = ('This field cannot be empty!')
+    } else {
+        input.classList.remove('is-invalid');
+        error.innerText = ('');
+        createTodo(input.value);
+    }
+}
 
 form.addEventListener('submit', e => {
     e.preventDefault();
 
-    createTodo(input.value);
-    input.value = '';
+    // if (input.value.length == 0) {
+    //     alert('todo får inte vara tomt')
+    //     return false;
+    // }
+   
+
+    validateTodo();
+    form.reset();
+    console.log(todos)
+    // createTodo(input.value);
+    // input.value = '';
+
+    
 })
+
+
+// output.addEventListener('click', e => {
+//     if(e.target.classList.contains('btn-danger')) {
+//         deleteTodo(e.target.parentNode.id)
+//     }
+// }
+// )
+// const deleteTodo = id => {
+//     todos = todos.filter(todo => todo.id != id);
+//     listTodos(todos);
+// }
