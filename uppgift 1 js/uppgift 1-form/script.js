@@ -1,32 +1,12 @@
 const form = document.querySelector('#form'); // referens till vårt formulär
- //referenser till vårat output som vi ska använda
 const firstName = document.querySelector('#firstName');
 const lastName = document.querySelector('#lastName');
 const email = document.querySelector('#email');
 const output = document.querySelector('#output'); //referenser till vårat output som vi ska använda
 
 
-let users = [];
+let users = []
 
-// const addUser = (output) => {
-
-//     output.innerHTML = '';
-//     users.forEach(user => {
-//         let html = `
-//         <div class="user">
-//                 <div class="text">
-//                     <h3>${user.firstName} ${user.lastName}</h3>
-//                     <small>${user.email}</small>
-//                 </div>
-//                 <div class="buttons">
-//                     <button class="btn btn-secondary">change</button>
-//                     <button class="btn btn-danger">delete</button>
-//                 </div>
-//                 </div>
-//     `
-//     output.innerHTML += html
-//     })
-// }
 
 
 const validateText = id => {
@@ -34,12 +14,12 @@ const validateText = id => {
     const error = document.querySelector('#'+id+'-error');
 
     if(input.value === '') {
-        error.innerText = 'You have to write a name!';
+        error.innerText = 'You have to write a name silly!';
         return false;
     }
 
-    else if (input.value.length < 3) {
-        error.innerText = 'Your name must be at least 3 letters!';
+    else if (input.value.length < 2) {
+        error.innerText = 'Your name must be at least 2 letters, silly!';
         return false;
     }
 
@@ -63,7 +43,7 @@ const validateEmail = id => {
             return true;
         }
         else {
-            error.innerText = 'You have to use a valid email!'
+            error.innerText = 'You have to use a valid email, silly!'
             return false
         }
 }
@@ -83,9 +63,10 @@ const validate = () => {
 }
 
 function listUsers() {
-    output.innerHTML = ''
+    output.innerHTML = '';
     users.forEach(user => {
       output.innerHTML += `
+            <div class="user">
                  <div class="text">
                      <h3>${user.firstName} ${user.lastName}</h3>
                     <small>${user.email}</small>
@@ -95,6 +76,7 @@ function listUsers() {
                    <button class="btn btn-danger">delete</button>
                  </div>
                 </div>
+            </div>
                 `
     })
 }
@@ -112,7 +94,7 @@ const createUser = (firstName, lastName, email) => {
     console.log(users);
 }
 
-// addUsers();
+
 
 
 
@@ -125,7 +107,7 @@ form.addEventListener('submit', (e) => {
         createUser(firstName.value, lastName.value, email.value);
 
         listUsers();
-    //    addUsers();
+    
     }
 
     
