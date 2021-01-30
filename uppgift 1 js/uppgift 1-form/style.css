@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(40,173,212,1) 35%, rgba(209,71,190,1) 100%);
+}
+
+.navbar {
+    color: white;
+}
+
+
+#regForm {
+    width: 80%;
+    justify-content: center;
+    color: white;
+}
+
+.user {
+    color: white;
+    padding: 1.3rem;
+    box-shadow: 5px 5px 11px 0 rgb(8, 28, 85);
+    opacity: 85%;
+    border-radius: 3rem;
+    margin-bottom: 1.3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user .btn {
+    border-radius: 3rem;
+    box-shadow: 3px 3px 9px 0 #333;
+}
