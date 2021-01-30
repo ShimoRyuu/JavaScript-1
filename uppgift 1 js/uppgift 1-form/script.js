@@ -67,6 +67,7 @@ function listUsers() {
       output.innerHTML += `
             <div class="user">
                  <div class="text">
+                    <p>${user.id}</p>
                      <h3>${user.firstName} ${user.lastName}</h3>
                     <small>${user.email}</small>
                 </div>
