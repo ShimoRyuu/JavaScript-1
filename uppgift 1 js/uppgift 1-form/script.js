@@ -13,20 +13,20 @@ const validateText = id => {
     const input = document.querySelector('#'+id);
     const error = document.querySelector('#'+id+'-error');
 
-    if(input.value === '') {
-        error.innerText = 'You have to write a name silly!';
-        return false;
-    }
+        if(input.value === '') {
+            error.innerText = 'You have to write a name silly!';
+            return false;
+        }
 
-    else if (input.value.length < 2) {
-        error.innerText = 'Your name must be at least 2 letters, silly!';
-        return false;
-    }
+        else if (input.value.length < 2) {
+            error.innerText = 'Your name must be at least 2 letters, silly!';
+            return false;
+        }
 
-    else {
-        error.innerText = '';
-        return true;
-    }
+        else {
+            error.innerText = '';
+            return true;
+        }
 
 }
 
@@ -50,7 +50,6 @@ const validateEmail = id => {
 
 
 const validate = () => {
-
     document.querySelectorAll('input').forEach(input => {
 
         if(input.type === "text") {
