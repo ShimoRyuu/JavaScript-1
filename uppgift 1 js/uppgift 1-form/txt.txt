@@ -242,3 +242,25 @@ form.addEventListener('submit', (e) => {
     if(validate('firstName') && validate('lastName') && validate('email')) {
         console.log('det gick bra')
     }
+
+
+
+function listUsers() {
+    output.innerHTML = '';
+    users.forEach(user => {
+      output.innerHTML += `
+            <div class="user">
+                 <div class="text">
+                    <p>${user.id}</p>
+                     <h3>${user.firstName} ${user.lastName}</h3>
+                    <small>${user.email}</small>
+                </div>
+                <div class="buttons">
+                    <button class="btn btn-secondary">change</button>
+                   <button class="btn btn-danger">delete</button>
+                 </div>
+                </div>
+            </div>
+                `
+    })
+}

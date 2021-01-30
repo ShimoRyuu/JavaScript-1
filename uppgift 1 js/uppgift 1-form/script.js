@@ -60,14 +60,13 @@ const validate = () => {
         }
     })
 }
-
+// jag visste inte om själva id:et skulle visas i listan men jag la till den iaf så att den finns där.
 function listUsers() {
     output.innerHTML = '';
     users.forEach(user => {
       output.innerHTML += `
             <div class="user">
                  <div class="text">
-                    <p>${user.id}</p>
                      <h3>${user.firstName} ${user.lastName}</h3>
                     <small>${user.email}</small>
                 </div>
