@@ -60,7 +60,6 @@ const validate = () => {
         }
     })
 }
-// jag visste inte om själva id:et skulle visas i listan men jag la till den iaf så att den finns där.
 function listUsers() {
     output.innerHTML = '';
     users.forEach(user => {
